@@ -1,0 +1,32 @@
+.result-counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    float: right;
+    margin-bottom: 32px;
+    .text {
+        margin-top: 0.3125rem;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: #A9A9A9;
+    }
+    .btn-collection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: 1rem;
+        cursor: pointer;
+        .right-icon,
+        .left-icon {
+            border-radius: 50%;
+            background-color: #e2e2e2;
+            color: #808080;
+            margin-right: 0.5rem;
+
+            &.active {
+                background-color: #ffebea;
+                color: #ff8e88;
+            }
+        }
+    }
+}
