@@ -25,21 +25,28 @@ export const fetchSuggestionSearch = async (dispatch, searchTerm) => {
 const formatData = (dispatch, [def, syn, ant]) => {
     const tagList = [];
     const searchMap = new Map();
-    def[0].defs.forEach(item => {
-        const [tag, meaning] = item.split('\t');
-        tagList.push(tag);
-        if(!searchMap.has(tag)) {
-            searchMap.set(tag, [meaning])
-        } else {
-            const res = searchMap.get(tag);
-            searchMap.set(tag, [...res, meaning])
-        }
-    })
-    const tagMap = [...new Set(tagList)];
-    dispatch({
-        type: 'FETCH_SEARCH_RESULTS',
-        payload: [tagMap, searchMap, syn, ant, def[0].word],
-    })
+    if(def[0].defs) {
+        def[0].defs.forEach(item => {
+            const [tag, meaning] = item.split('\t');
+            tagList.push(tag);
+            if(!searchMap.has(tag)) {
+                searchMap.set(tag, [meaning])
+            } else {
+                const res = searchMap.get(tag);
+                searchMap.set(tag, [...res, meaning])
+            }
+        })
+        const tagMap = [...new Set(tagList)];
+        dispatch({
+            type: 'FETCH_SEARCH_RESULTS',
+            payload: [tagMap, searchMap, syn, ant, def[0].word],
+        })
+    } else {
+        dispatch({
+            type: 'FETCH_ERROR',
+            payload: 'No meaning available, try another keyword'
+        })
+    }
 
 }
 

@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
-import ResultCounter from '../ResultCounter/resultCounter';
+import ResultCounter from '../ResultCounter/ResultCounter';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { blue, yellow } from '../../constants';
 import { StoreContext } from '../../App';
@@ -111,7 +111,9 @@ function AccordionList({ tagName }) {
                </div>
             </AccordionSummary>
             <AccordionDetails>
-                <div className={classes.meaning}>
+                <div
+                  data-testid="meaning" 
+                  className={classes.meaning}>
                     {searchList.get(tagName)[index]}
                 </div>
                <ResultCounter

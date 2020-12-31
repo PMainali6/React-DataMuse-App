@@ -36,12 +36,14 @@ function ResultCounter({current, total, handleBtnClick, interval, index}) {
             <div className="text">{`${current} OUT OF ${total} RESUTLS`}</div>
             <div className="btn-collection">
                 <div
+                    data-testid="leftBtn" 
                     role="presentation"
                     onClick={() => handlePagination(leftRef)}
                     ref={leftRef}
                     className={`left-icon ${isPrev ? 'active': ''}`}
                 >< ChevronLeftIcon /></div>
                 <div
+                    data-testid="rightBtn" 
                     role="presentation"
                     onClick={() => handlePagination(rightRef)}
                     ref={rightRef}

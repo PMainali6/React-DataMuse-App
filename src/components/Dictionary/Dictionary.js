@@ -55,7 +55,7 @@ function Dictionary() {
             <Snackbar
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
                 open={open}
-                autoHideDuration={1000}
+                autoHideDuration={3000}
                 onClose={handleClose}>
                 <Alert  onClose={handleClose} severity="error">
                     {error}

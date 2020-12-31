@@ -103,10 +103,11 @@ function SearchBar() {
             <div className={classes.resultsWrapper}>
             {suggestionList.length > 0
                 && <div
-                     className={classes.resultsContainer}
-                    onClick={handleSuggestionClick}>
+                        data-testid="suggestionList"
+                        className={classes.resultsContainer}
+                        onClick={handleSuggestionClick}>
                         {suggestionList.map(item => 
-                        <div className={classes.resultItem} key={item.word}>
+                            <div className={classes.resultItem} key={item.word}>
                         {item.word}  
                         </div>
                         )}
